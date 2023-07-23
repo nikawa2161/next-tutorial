@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,16 +18,9 @@ export default function RootLayout({
     <html lang="ja">
       <head />
       <body>
-        <header>
-          <h1>
-            <Link href="/">ブログ</Link>
-          </h1>
-          <Link href="/articles/new">記事を書く</Link>
-        </header>
+        <Header />
         {children}
-        <footer>
-          <small>© 2023 nikawa</small>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
