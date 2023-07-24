@@ -1,3 +1,4 @@
+import PostCard from "./components/ArticleCard";
 import { Post } from "./types";
 
 async function getPosts() {
@@ -19,12 +20,12 @@ export default async function Home() {
 
   return (
     <>
-      <div>
+      <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <h1>新着投稿</h1>
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
-              <a href={`/posts/${post.id}`}>{post.title}</a>
+              <PostCard post={post} />
             </li>
           ))}
         </ul>
