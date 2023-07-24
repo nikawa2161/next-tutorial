@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import Header from "./Header";
 import Footer from "./Footer";
 import Loading from "./loading";
+import Error from "./error";
+import ErrorBoundary from "./ErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +23,11 @@ export default function RootLayout({
       <head />
       <body>
         <Header />
-        <Suspense fallback={<Loading />}>
-          <main>{children}</main>
-        </Suspense>
+        <ErrorBoundary Fallback={Error}>
+          <Suspense fallback={<Loading />}>
+            <main>{children}</main>
+          </Suspense>
+        </ErrorBoundary>
         <Footer />
       </body>
     </html>
