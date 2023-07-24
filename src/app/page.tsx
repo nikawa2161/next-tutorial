@@ -1,7 +1,11 @@
 import { Post } from "./types";
 
 async function getPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  // fetchはデフォルトでキャッシュを使用：https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch
+  // cache: "no-cache"でキャッシュを使用しない
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    cache: "no-cache",
+  });
   if (!res.ok) {
     throw new Error("記事の取得に失敗しました");
   }
